@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Algorithms Example 1</title>
+</head>
+<body>
+	<script>
+		
+		// Given a string, for example, “Hello World”, write some code to reverse that string (“dlroW olleH”).
+
+		// (Hint: try using the Array.reverse() method! But, if you do, try solving it just using looping as well).
+
+
+		var forward_string = "12345";
+
+		var forward_array = [];
+
+		var forward_array = forward_string.split("");
+
+		console.log(forward_string);
+		console.log(forward_array);
+
+		var reverse_array = [];
+
+		for (var i = forward_array.length -1; i >=0; i--) {
+			reverse_array.push(forward_array[i]);
+		}
+
+		console.log(reverse_array);
+
+	</script>
+</body>
+</html>

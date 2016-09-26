@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Algorithms Exercise 4</title>
+</head>
+<body>
+	<script>
+		
+		// Write a JavaScript program which prompts the user for a number and console.logs that number as a string with dashes (-) between each two odd digits. 
+		// For example if the user types 0253697 the output should be “025-369-7”.
+
+		var userNumber = prompt("Enter a number with both odd and even numbers");
+		var userNumARR = (userNumber).split("");
+		var i = 0;
+		var newARR = [];
+
+		while (i < userNumARR.length) {
+			if ((userNumARR[i] % 2) !== 0 && (userNumARR[i+1]) % 2 !== 0) {
+				newARR.push(userNumARR[i]);
+				newARR.push("-");				  
+			} 	else newARR.push(userNumARR[i]);
+				i = i + 1;
+		}	
+			if ((userNumARR[i]) % 2 !== 0) {
+				newARR.pop();
+			}	
+
+		console.log("User number as entered " + userNumber);
+		console.log("User number as an array " + userNumARR);
+		console.log("User number with - inserted in array " + newARR);
+		console.log("Answer as a string " + newARR.join(""));
+
+	</script>
+</body>
+</html>

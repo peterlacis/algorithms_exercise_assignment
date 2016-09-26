@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Algorithms Exercise 6</title>
+</head>
+<body>
+	<script>
+			
+// 		In the style of Colossal Cave Adventure, write a three-room adventure game. The user should start in one room: “You are in a room. There is an exit to the north and to the west”. Try using the prompt text for output (prompt ("you are in a room..."))
+
+// The user will type an instruction into the prompt (e.g. “go north”). Figure out what the user wants to do (“go north” or “go west”) and follow that instruction.
+
+// Put a dragon in the north room and a shield in the west room. They must get the shield (“get shield” in the west room) to get past the dragon. The west room has an exit to the east (the starting room) and the north room has an exit to the north and south (the win condition and the starting room).
+
+// When they get past the dragon (“go north” in the north room while holding the shield), they win the game.
+
+// If you are feeling adventurous, try adding even more rooms, items, and challenges to this game!
+
+
+	// 1.  "You are in a room.  There is an exit to the north and to the west." 
+	// 2. put dragon in north room (exit to north-win and south-starting)
+	// 3. put shield in west room (exit to east-starting)
+	// 4. users can enter "go north" or "go west"
+	// 5. user must "get sheild" in west room to get past the dragon
+	// 6. if has shield, then can pass dragon and win game
+
+	var pass_dragon = false;
+	var shield = false;
+	var room_start = true;
+	var room_north = false;
+	var room_west = false;
+	
+	//var user_action = prompt("You are in a room.  There is an exit to the north and to the west.");
+
+	while (pass_dragon === false) {
+
+
+		while (room_start === true) {
+			
+			var user_action = prompt("You are in a room.  There is an exit to the north and to the west.");
+
+			if (user_action === "go north") { 
+				room_start = false;
+				room_west = false;
+				room_north = true;
+
+			} else if (user_action === "go west") {
+				room_start = false;
+				room_west = true;
+				room_north = false;
+
+			} else {
+				user_action = prompt("You are in the first room.  There is an exit to the north and to the west.");
+			}
+	}		
+		
+		 while (room_west === true) {
+
+			room_start = false;
+			room_north = false;
+			
+			user_action = prompt("There is a shield in this room.  Would you like to pick it up?");
+			
+			if (user_action === "yes") {
+				shield = true;
+				user_action = prompt("You have the shield.  There is an exit to the east.");
+			
+				if (user_action === "go east") {
+					room_west = false;
+					room_start = true;
+					room_north = false;
+				}
+			
+			} else if (shield === false) {
+				user_action = prompt("There is an exit to the east.");
+			
+				if (user_action === "go east") {
+					room_west = false;
+					room_start = true;
+					room_north = false;
+			
+				} else {
+					user_action = prompt("There is an exit to the east.");
+				}
+			}
+		 }
+
+
+		 while (room_north === true && pass_dragon === false) {
+			room_start = false;
+			room_west = false;
+			user_action = prompt("There is a dragon in this room!  You need to pass him to get to the exit at the north.");
+			
+			if ((user_action === "go north") && (shield === false)) {
+				user_action = prompt("You can't pass the dragon without the shield!  What do you want to do?");
+					
+					if (user_action === "go south") {
+					room_north = false;
+					room_start = true;
+					room_west = false;
+					}	
+
+					else {
+					user_action = prompt("You can't pass the dragon without the shield!  What do you want to do?");
+					room_north = false;
+					room_start = true;
+					room_west = false;
+					}
+			} else if ((user_action === "go south") && (shield === false)) {
+				room_north = false;
+				room_start = true;
+				room_west = false;
+			} else if ((user_action === "go north") && (shield === true)) {
+				alert("You've passed the dragon!  You win!");
+				pass_dragon = true;
+			}
+		}		
+		
+	}	
+
+
+
+
+
+	// 	if ((user_action = "go north") && (shield = false)) {
+	// 		room_start = false;
+	// 		room_north = true;
+	// 		room_west = false;
+	// 		user_action = prompt("There is a dragon!  You can't pass!");
+	// 	}	
+	// 		else if ((user_action = "go north") && (shield = true)) {
+	// 		room_start = false;
+	// 		room_north = true;
+	// 		room_west = false;
+	// 		user_action = prompt("You're shield protected you from the dragon.  You win!!!");
+			
+	// 		else if ((user_action = "go west") && (shield = false))  {
+	// 			room_start = false;
+	// 			room_north = false;
+	// 			room_west = true;
+	// 			user_action = prompt("There is a shield in this room.  Would you like to pick it up?");
+			
+	// 			if user_action = "yes" {
+	// 				shield = true;
+	// 				user_action = prompt("You now have a shield.  There is an exit to the east.");
+	// 			}  else {
+	// 				sheild = false;
+	// 			}
+
+	// }
+
+
+	
+
+
+
+
+
+	</script>
+</body>
+</html>

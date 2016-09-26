@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Algorithms Example 2</title>
+</head>
+<body>
+	<script>
+		
+		// If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+
+		// Find the sum of all the multiples of 3 or 5 below 1500.
+
+		// step 1 - create a count of numbers from 1 - 10
+
+		// step 2 - determine if those numbers are divisable by 3 or 5 with zero remainder
+
+		// step 3 - add all of those numbers up
+
+
+		var i = 1;
+
+		var sum = 0
+
+		while (i < 1500) {
+			if ((i % 3 === 0) || (i % 5 === 0)) {
+				sum = sum + i;
+			}
+			i = i + 1;
+		}
+
+		console.log(sum);
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>
